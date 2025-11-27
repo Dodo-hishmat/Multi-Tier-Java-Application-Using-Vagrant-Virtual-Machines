@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
 
   # 1. Web Tier (Nginx) - Ubuntu
   config.vm.define "web01" do |web01|
-    web01.vm.box = "hashicorp/bionic64" # Ubuntu 18.04 or use "ubuntu/jammy64" for 22.04
+    web01.vm.box = "hashicorp/bionic64" 
     web01.vm.hostname = "web01"
     web01.vm.network "private_network", ip: "192.168.56.11"
     web01.vm.provider "virtualbox" do |vb|
@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
     app01.vm.hostname = "app01"
     app01.vm.network "private_network", ip: "192.168.56.12"
     app01.vm.provider "virtualbox" do |vb|
-      vb.memory = "2048" # PDF asks for 4200MB, but I set 2GB to be safe for your laptop. Increase if you have 16GB+ RAM.
+      vb.memory = "2048"
       vb.cpus = 2
       vb.name = "app01_tomcat"
     end
